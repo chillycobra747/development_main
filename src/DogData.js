@@ -1,0 +1,90 @@
+const data = {
+    dogs: [
+      {
+        id: 1,
+        name: "Wren",
+        breed: "German Shepard",
+        age: 2,
+        special: "potty trained", 
+      },
+      {
+        id: 2,
+        name: "Wren",
+        breed: "German Shepard",
+        age: 2,
+        special: "potty trained", 
+      },
+      {
+        id: 3,
+        name: "Wren",
+        breed: "German Shepard",
+        age: 2,
+        special: "potty trained", 
+      },
+      {
+        id: 4,
+        name: "Wren",
+        breed: "German Shepard",
+        age: 2,
+        special: "potty trained", 
+      },
+      {
+        id: 5,
+        name: "Wren",
+        breed: "German Shepard",
+        age: 2,
+        special: "potty trained", 
+      },
+      {
+        id: 6,
+        name: "Wren",
+        breed: "German Shepard",
+        age: 2,
+        special: "potty trained", 
+      },
+      {
+        id: 7,
+        name: "Wren",
+        breed: "German Shepard",
+        age: 2,
+        special: "potty trained", 
+      },
+      {
+        id: 8,
+        name: "Wren",
+        breed: "German Shepard",
+        age: 2,
+        special: "potty trained", 
+      },
+      {
+        id: 9,
+        name: "Wren",
+        breed: "German Shepard",
+        age: 2,
+        special: "potty trained", 
+      },
+      {
+        id: 10,
+        name: "Wren",
+        breed: "German Shepard",
+        age: 2,
+        special: "potty trained", 
+      },
+      {
+        id: 11,
+        name: "Wren",
+        breed: "German Shepard",
+        age: 2,
+        special: "potty trained", 
+      },
+      {
+        id: 12,
+        name: "Wren",
+        breed: "German Shepard",
+        age: 2,
+        special: "potty trained", 
+      },
+    ],
+  };
+
+  export default data;
