@@ -32,3 +32,9 @@ code {
   flex-basis: 100%;
   flex: 2; 
 }
+
+.dogItem {
+  background-color: rgb(213, 168, 255);
+  padding: 1rem;
+  margin: 5px;
+}

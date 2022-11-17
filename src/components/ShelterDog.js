@@ -1,11 +1,11 @@
 export default function ShelterDog(props) {
-    const {dog} = props;
+    const {dog, onAdd, onRemove} = props;
     return (
-        <div className = "card"> 
+        <div className = "dogItem"> 
             <h3>{dog.name}</h3>
             <h2>{dog.breed}</h2>
             <h2>{dog.special}</h2>
-            <button>Add to cart</button>
+            <button onClick={() => onAdd(dog)}>Add to cart</button>
         </div>
     )
 }
