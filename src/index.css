@@ -38,3 +38,7 @@ code {
   padding: 1rem;
   margin: 5px;
 }
+
+img.small {
+  width: 25rem;
+}
