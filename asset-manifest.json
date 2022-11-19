@@ -1,13 +1,28 @@
 {
   "files": {
-    "main.css": "/development_main/static/css/main.b31f66f5.css",
-    "main.js": "/development_main/static/js/main.4f2dc897.js",
+    "main.css": "/development_main/static/css/main.90336882.css",
+    "main.js": "/development_main/static/js/main.59a44e05.js",
+    "static/media/signika-negative-v20-latin-regular.svg": "/development_main/static/media/signika-negative-v20-latin-regular.2992f9a2d63a1ac77bce.svg",
+    "static/media/libre-baskerville-v14-latin-regular.svg": "/development_main/static/media/libre-baskerville-v14-latin-regular.cbbe594b5dcfc1baf1ef.svg",
+    "static/media/libre-baskerville-v14-latin-regular.ttf": "/development_main/static/media/libre-baskerville-v14-latin-regular.bada7a59bcd7ed746718.ttf",
+    "static/media/rajdhani-v15-latin-regular.svg": "/development_main/static/media/rajdhani-v15-latin-regular.3ef22020f7a955ca72e9.svg",
+    "static/media/signika-negative-v20-latin-regular.ttf": "/development_main/static/media/signika-negative-v20-latin-regular.9d1606579a0d53c8f098.ttf",
+    "static/media/rajdhani-v15-latin-regular.ttf": "/development_main/static/media/rajdhani-v15-latin-regular.1eca6f921d254395857f.ttf",
+    "static/media/libre-baskerville-v14-latin-regular.woff": "/development_main/static/media/libre-baskerville-v14-latin-regular.872eba0ebdd4bdd0dc01.woff",
+    "static/media/libre-baskerville-v14-latin-regular.eot": "/development_main/static/media/libre-baskerville-v14-latin-regular.6633b3f9334756d2b02d.eot",
+    "static/media/libre-baskerville-v14-latin-regular.woff2": "/development_main/static/media/libre-baskerville-v14-latin-regular.023e192311fcda1965f6.woff2",
+    "static/media/signika-negative-v20-latin-regular.woff": "/development_main/static/media/signika-negative-v20-latin-regular.faa74f788f7a98c06e58.woff",
+    "static/media/signika-negative-v20-latin-regular.eot": "/development_main/static/media/signika-negative-v20-latin-regular.97b1e4c424ec8a81d566.eot",
+    "static/media/signika-negative-v20-latin-regular.woff2": "/development_main/static/media/signika-negative-v20-latin-regular.c489d2b0b1f622729ff6.woff2",
+    "static/media/rajdhani-v15-latin-regular.woff": "/development_main/static/media/rajdhani-v15-latin-regular.6c9a99410b0291df0af8.woff",
+    "static/media/rajdhani-v15-latin-regular.eot": "/development_main/static/media/rajdhani-v15-latin-regular.bb0f1b3be12354025984.eot",
+    "static/media/rajdhani-v15-latin-regular.woff2": "/development_main/static/media/rajdhani-v15-latin-regular.7a7983e943008b42789d.woff2",
     "index.html": "/development_main/index.html",
-    "main.b31f66f5.css.map": "/development_main/static/css/main.b31f66f5.css.map",
-    "main.4f2dc897.js.map": "/development_main/static/js/main.4f2dc897.js.map"
+    "main.90336882.css.map": "/development_main/static/css/main.90336882.css.map",
+    "main.59a44e05.js.map": "/development_main/static/js/main.59a44e05.js.map"
   },
   "entrypoints": [
-    "static/css/main.b31f66f5.css",
-    "static/js/main.4f2dc897.js"
+    "static/css/main.90336882.css",
+    "static/js/main.59a44e05.js"
   ]
 }
