@@ -33,9 +33,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header"> Providence Shelter</header>
-      <h1>hi</h1>
       <div className="row">
-        <Cart cart={cart} onAdd={onAdd} onRemove={onRemove} countCartItems = {cart.length} />
+        <div className="cart">  
+          <Cart cart={cart} onAdd={onAdd} onRemove={onRemove} countCartItems = {cart.length} />
+        </div>
         <Grid cart={cart} onAdd={onAdd} onRemove={onRemove} dogs={dogs}/>   
       </div>
     </div>

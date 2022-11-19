@@ -2,7 +2,7 @@ export default function ShelterDog(props) {
     const {dog, onAdd, onRemove, dogCard} = props;
     return (
         <div className = "dogItem"> 
-            <h2>{dog.name}</h2>
+            <h1>{dog.name}</h1>
             <h4>{dog.age} months</h4>
             <h3>{dog.breed}</h3>
             <h3>{dog.special}</h3>
