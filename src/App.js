@@ -8,7 +8,8 @@ import { useState } from 'react';
 function App() {
   const {dogs} = data; 
   const [cart, setCart] = useState([]);
-
+  const [cost, setCost] = useState(0);
+  
   const onAdd = (dog) => {
     const exist = cart.find((x) => x.id === dog.id);
     if (exist) {
@@ -18,7 +19,9 @@ function App() {
     } else {
       setCart([...cart, {...dog, qty:1}]);
     }
+    setCost(cost + dog.price);
   }
+ 
   const onRemove = (dog) => {
     const exist = cart.find((x) => x.id === dog.id); 
     if (exist.qty === 1) {
@@ -29,13 +32,14 @@ function App() {
       x.id === dog.id ? {...exist, qty: exist.qty-1} : x);
       setCart(newCartItems);
     }
+    setCost(cost - dog.price);
   }
   return (
     <div className="App">
       <header className="App-header"> Providence Shelter</header>
       <div className="row">
         <div className="cart">  
-          <Cart cart={cart} onAdd={onAdd} onRemove={onRemove} countCartItems = {cart.length} />
+          <Cart cart={cart} onAdd={onAdd} onRemove={onRemove} countCartItems = {cart.length} cost={cost} />
         </div>
         <Grid cart={cart} onAdd={onAdd} onRemove={onRemove} dogs={dogs}/>   
       </div>
