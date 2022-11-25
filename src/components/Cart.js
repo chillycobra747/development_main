@@ -10,7 +10,7 @@ export default function Cart(props) {
 
     return (
     <div>
-        <div className="col-1">
+        <div className="col">
             <h2>Your Dogs</h2>
            
             <h3>total number added: {countCartItems}</h3>
@@ -20,7 +20,7 @@ export default function Cart(props) {
                     <h4>You Have No Dogs</h4></div>}
                 {cart.map((dog) => (
                     <div key={dog.id} className="row">
-                        <div className="col-1">
+                        <div className="col">
                             <h1>{dog.name}</h1></div>
                     </div>
                 ))}

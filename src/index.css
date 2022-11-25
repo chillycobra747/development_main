@@ -77,7 +77,9 @@ code {
   padding: 2rem;
   height: 100%;
   border-radius: 30px;
+  width: 70%;
   box-shadow: 3px 5px 3px 3px  #282c34c4;
+  align-items: center;
 }
 .col-1 {
   flex-basis: 100%;
@@ -100,4 +102,11 @@ code {
 
 img.small {
   width: 23rem;
+}
+
+.sexToggle {
+  background-color: #282c34c4;
+}
+.sexToggle:focus {
+  background-color: rgb(123, 180, 17);
 }

@@ -5,7 +5,7 @@ import Cart from './components/Cart';
 import data from './DogData'
 import { useState } from 'react';
 import ShelterDog from "./components/ShelterDog.js";
-
+import styled from "styled-components";
 
 function App() {
   const {dogs} = data; 
@@ -13,8 +13,11 @@ function App() {
   const [cost, setCost] = useState(0);
 
   const [sex, setSex] = useState("Any Gender");
+  // const [sex, setSex] = useState(types[0]);
   const [priceLimit, setPriceLimit] = useState("Any Price");
   const [dogList, setDogList] = useState(dogs);
+
+  
 
   const maleDogs = dogs.filter(d  => {
     return d.sex === "Male";
@@ -29,9 +32,50 @@ function App() {
     return d.price < 500;
   });
 
-  const sexToggle = event => {
+  const ButtonGroup = styled.div`
+  display: flex;
+`
+const Button = styled.button`
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
+`;
+const ButtonToggle = styled(Button)`
+  opacity: 0.6;
+  ${({ active }) =>
+    active &&
+    `
+    opacity: 1;
+  `}
+`;
+
+const types = ["Any Sex", "Male", "Female"];
+const [active, setActive] = useState(types[0]);
+
+function ToggleGroup() { 
+  return (
+    <ButtonGroup>
+      {types.map(currSex => (
+        <ButtonToggle
+          key={currSex}
+          active={active === currSex}
+          onClick={() => sexToggle(currSex)}
+        >
+          {currSex}
+        </ButtonToggle>
+      ))}
+    </ButtonGroup>
+  );
+}
+
+  const sexToggle = (currSex) => {
+    setActive(currSex);
     setDogList(dogs);
-    if (sex === "Male") {  
+    if (currSex === "Male") {  
       setSex("Female");        
       if (priceLimit === "Above $500") {
         const fList = femaleDogs.filter(d  => {
@@ -106,8 +150,8 @@ function App() {
     setDogList(sortedList);
   }
 
+ 
 
-  
   const onAdd = (dog) => {
     const newCartItems = cart.map((x) => 
       x.id === dog.id);
@@ -149,7 +193,15 @@ function App() {
           <Cart cart={cart} onAdd={onAdd} onRemove={onRemove} 
             countCartItems = {cart.length} cost={cost} dogs={dogs}>              
           </Cart>
-          <button onClick={sexToggle}>{sex} Dogs</button>
+          <button className="sexToggle" onClick={sexToggle}>{sex} Dogs</button>
+          
+          <ButtonGroup>
+          <Button> Group 1 </Button>
+          <Button> Group 2 </Button>
+        </ButtonGroup>
+        <ToggleGroup />
+
+
           <button onClick={priceToggle}>{priceLimit}</button>
           <button onClick={sort}>Sort</button>
         </div>
