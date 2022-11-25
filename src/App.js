@@ -14,23 +14,89 @@ function App() {
 
   const [filter, setFilter] = useState(""); 
   const [sex, setSex] = useState("Any Gender");
+  const [priceLimit, setPriceLimit] = useState("Any Price");
   const [dogList, setDogList] = useState(dogs);
 
-  const handleClick = event => {
+  const maleDogs = dogs.filter(d  => {
+    return d.sex === "Male";
+  });
+  const femaleDogs = dogs.filter(d  => {
+    return d.sex === "Female";
+  });
+  const highDogs = dogs.filter(d  => {
+    return d.price > 500;
+  });
+  const lowDogs = dogs.filter(d  => {
+    return d.price < 500;
+  });
+
+  const sexToggle = event => {
     setDogList(dogs);
-    if (sex === "Female") {
-      setSex("Male");
-      const maleDogs = dogs.filter(d  => {
-        return d.sex === sex;
-      });
-      setDogList(maleDogs);
+    if (sex === "Male") {  
+      setSex("Female");        
+      if (priceLimit === "Above $500") {
+        const fList = femaleDogs.filter(d  => {
+          return d.price > 500;
+        });
+        setDogList(fList); 
+      } else if (priceLimit === "Below $500") {
+        const fList = femaleDogs.filter(d  => {
+          return d.price < 500;
+        });
+        setDogList(fList);
+      } else {
+          setDogList(femaleDogs); 
+      }
+      
+    } else {    
+      setSex("Male");      
+      if (priceLimit === "Above $500") {
+        const fList = maleDogs.filter(d  => {
+          return d.price > 500;
+        });
+        setDogList(fList); 
+      } else if (priceLimit === "Below $500") {
+        const fList = maleDogs.filter(d  => {
+          return d.price < 500;
+        });
+        setDogList(fList);
+      } else {
+          setDogList(maleDogs); 
+      }
+      
+    } 
+    // if (sex === "Female") {
+    //   setDogList(maleDogs);
+    //   setSex("Male");
+    // } else {     
+    //   setDogList(femaleDogs);
+    //   setSex("Female");
+    // }
+  }
+
+  const priceToggle = event => {
+    setDogList(dogs);
+    if (priceLimit === "Below $500") {
+      setPriceLimit("Above $500");           
+      if (sex !== "Any Gender") {
+        const fList = highDogs.filter(d  => {
+          return d.sex === sex;
+        });
+        setDogList(fList); 
+      } else {
+          setDogList(highDogs); 
+        }
     } else {
-      setSex("Female");
-      const femaleDogs = dogs.filter(d  => {
-        return d.sex === sex;
-      });
-      setDogList(femaleDogs);
-    }
+      setPriceLimit("Below $500");   
+      if (sex !== "Any Gender") {
+        const fList = lowDogs.filter(d  => {
+          return d.sex === sex;
+        });
+        setDogList(fList); 
+      } else {
+          setDogList(lowDogs); 
+        }
+      }
   }
   
   const buttons = ({ setItem, menuItems }) => {
@@ -100,12 +166,14 @@ function App() {
           <Cart cart={cart} onAdd={onAdd} onRemove={onRemove} 
             countCartItems = {cart.length} cost={cost} dogs={dogs}>              
           </Cart>
-          <button onClick={() => setFilter("male")} className="filterButton">Male</button>
-          <button onClick={handleClick}>{sex} Dogs</button>
+          <button onClick={sexToggle}>{sex} Dogs</button>
+          <button onClick={priceToggle}>{priceLimit}</button>
    
         
         </div>
+        
         <div className="block col-2">  
+        <h3>Showing dogs of {sex} and {priceLimit}</h3>
         <div className="row">
             {dogList.map((dog) => (
                 <ShelterDog 
