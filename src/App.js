@@ -9,11 +9,29 @@ import ShelterDog from "./components/ShelterDog.js";
 
 function App() {
   const {dogs} = data; 
-  
   const [cart, setCart] = useState([]);
   const [cost, setCost] = useState(0);
 
   const [filter, setFilter] = useState(""); 
+  const [sex, setSex] = useState("Any Gender");
+  const [dogList, setDogList] = useState(dogs);
+
+  const handleClick = event => {
+    setDogList(dogs);
+    if (sex === "Female") {
+      setSex("Male");
+      const maleDogs = dogs.filter(d  => {
+        return d.sex === sex;
+      });
+      setDogList(maleDogs);
+    } else {
+      setSex("Female");
+      const femaleDogs = dogs.filter(d  => {
+        return d.sex === sex;
+      });
+      setDogList(femaleDogs);
+    }
+  }
   
   const buttons = ({ setItem, menuItems }) => {
     return (
@@ -83,13 +101,13 @@ function App() {
             countCartItems = {cart.length} cost={cost} dogs={dogs}>              
           </Cart>
           <button onClick={() => setFilter("male")} className="filterButton">Male</button>
-        
+          <button onClick={handleClick}>{sex} Dogs</button>
    
         
         </div>
         <div className="block col-2">  
         <div className="row">
-            {dogs.map((dog) => (
+            {dogList.map((dog) => (
                 <ShelterDog 
                     key={dog.id} 
                     dog={dog} 
@@ -99,9 +117,9 @@ function App() {
                 </ShelterDog>               
             ))}
         </div>
-
-        <div>
-        {dogs.filter(person => person.sex === "Female").map(dog => (
+        {/* <div>
+        
+        {dogList.filter(person => person.sex === "Female").map(dog => (
                 <ShelterDog 
                     key={dog.id} 
                     dog={dog} 
@@ -110,11 +128,11 @@ function App() {
                     dogCard={cart.find((x) => x.id === dog.id)}>
                 </ShelterDog>               
             ))}
-        </div>
+        </div> */}
 
     </div>
 
-      <Grid cart={cart} onAdd={onAdd} onRemove={onRemove} dogs={dogs}/>   
+      <Grid cart={cart} onAdd={onAdd} onRemove={onRemove} dogs={dogList}/>   
       </div>
       
     </div>
