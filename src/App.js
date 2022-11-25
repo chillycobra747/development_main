@@ -12,7 +12,7 @@ function App() {
   const [cart, setCart] = useState([]);
   const [cost, setCost] = useState(0);
 
-  const [sex, setSex] = useState("Any Gender");
+  const [sex, setSex] = useState("Any Sex");
   // const [sex, setSex] = useState(types[0]);
   const [priceLimit, setPriceLimit] = useState("Any Price");
   const [dogList, setDogList] = useState(dogs);
@@ -52,7 +52,6 @@ const ButtonToggle = styled(Button)`
     opacity: 1;
   `}
 `;
-
 const types = ["Any Sex", "Male", "Female"];
 const [active, setActive] = useState(types[0]);
 
@@ -75,7 +74,7 @@ function ToggleGroup() {
   const sexToggle = (currSex) => {
     setActive(currSex);
     setDogList(dogs);
-    if (currSex === "Male") {  
+    if (currSex === "Female") {  
       setSex("Female");        
       if (priceLimit === "Above $500") {
         const fList = femaleDogs.filter(d  => {
@@ -91,7 +90,7 @@ function ToggleGroup() {
           setDogList(femaleDogs); 
       }
       
-    } else {    
+    } else if (currSex === "Male") {    
       setSex("Male");      
       if (priceLimit === "Above $500") {
         const fList = maleDogs.filter(d  => {
@@ -104,24 +103,56 @@ function ToggleGroup() {
         });
         setDogList(fList);
       } else {
-          setDogList(maleDogs); 
+        setDogList(maleDogs); 
+      }      
+    } else {    
+      setSex("Any Sex");      
+      setDogList(dogs); 
+      if (priceLimit === "Above $500") {
+        setDogList(highDogs); 
       }
-      
-    } 
-    // if (sex === "Female") {
-    //   setDogList(maleDogs);
-    //   setSex("Male");
-    // } else {     
-    //   setDogList(femaleDogs);
-    //   setSex("Female");
-    // }
+      else if (priceLimit === "Below $500") {
+        setDogList(lowDogs);
+      }
+      // } else {
+      //   setDogList(dogList); 
+      // }
+    }
   }
 
-  const priceToggle = event => {
+
+
+  const PriceButtonToggle = styled(Button)`
+  opacity: 0.6;
+  ${({ priceActive }) =>
+  priceActive &&
+    `
+    opacity: 1;
+  `}
+`;
+const priceTypes = ["Any Price", "Below $500", "Above $500"];
+const [priceActive, setPriceActive] = useState(priceTypes[0]);
+
+function PriceToggleGroup() { 
+  return (
+    <ButtonGroup>
+      {priceTypes.map(currPrice => (
+        <PriceButtonToggle
+          key={currPrice}
+          priceActive={priceActive === currPrice}
+          onClick={() => priceToggle(currPrice)}
+        >
+          {currPrice}
+        </PriceButtonToggle>
+      ))}
+    </ButtonGroup>
+  );
+}
+  const priceToggle = (currPrice) => {
     setDogList(dogs);
-    if (priceLimit === "Below $500") {
+    if (currPrice === "Above $500") {
       setPriceLimit("Above $500");           
-      if (sex !== "Any Gender") {
+      if (sex !== "Any Sex") {
         const fList = highDogs.filter(d  => {
           return d.sex === sex;
         });
@@ -129,15 +160,25 @@ function ToggleGroup() {
       } else {
           setDogList(highDogs); 
         }
-    } else {
+    } else if (currPrice === "Below $500") {
       setPriceLimit("Below $500");   
-      if (sex !== "Any Gender") {
+      if (sex !== "Any Sex") {
         const fList = lowDogs.filter(d  => {
           return d.sex === sex;
         });
         setDogList(fList); 
       } else {
           setDogList(lowDogs); 
+        }
+      }
+      else {    
+        setPriceLimit("Any $500");       
+        setDogList(dogs); 
+        if (sex === "Female") {
+          setDogList(femaleDogs); 
+        }
+        else if (sex === "Male") {
+          setDogList(maleDogs);
         }
       }
   }
@@ -195,14 +236,11 @@ function ToggleGroup() {
           </Cart>
           <button className="sexToggle" onClick={sexToggle}>{sex} Dogs</button>
           
-          <ButtonGroup>
-          <Button> Group 1 </Button>
-          <Button> Group 2 </Button>
-        </ButtonGroup>
         <ToggleGroup />
-
+        <PriceToggleGroup/>
 
           <button onClick={priceToggle}>{priceLimit}</button>
+          
           <button onClick={sort}>Sort</button>
         </div>
         
