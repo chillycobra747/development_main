@@ -11,13 +11,13 @@ function App() {
   const {dogs} = data; 
   const [cart, setCart] = useState([]);
   const [cost, setCost] = useState(0);
+  const [sorted, setSorted] = useState("Sort");
 
   const [sex, setSex] = useState("Any Sex");
   // const [sex, setSex] = useState(types[0]);
   const [priceLimit, setPriceLimit] = useState("Any Price");
   const [dogList, setDogList] = useState(dogs);
 
-  
 
   const maleDogs = dogs.filter(d  => {
     return d.sex === "Male";
@@ -184,14 +184,20 @@ function PriceToggleGroup() {
   }
 
   const sort = event => {
-    const lowestFirst = [...dogList].sort((a, b) => a.price - b.price);
-    const sortedList = lowestFirst.map(d => {
-      return d; 
-    })
-    setDogList(sortedList);
+    const currList = dogList; 
+    if (sorted === "Unsort"){
+      setSorted("Sort");
+      const unsortedList = dogList.sort(() => Math.random() - 0.5);
+      setDogList(unsortedList);
+    } else {
+      setSorted("Unsort");
+      const lowestFirst = [...dogList].sort((a, b) => a.price - b.price);
+      const sortedList = lowestFirst.map(d => {
+        return d; 
+      })
+      setDogList(sortedList);
+    }    
   }
-
- 
 
   const onAdd = (dog) => {
     const newCartItems = cart.map((x) => 
@@ -241,7 +247,7 @@ function PriceToggleGroup() {
 
           <button onClick={priceToggle}>{priceLimit}</button>
           
-          <button onClick={sort}>Sort</button>
+          <button onClick={sort}>{sorted} By Price</button>
         </div>
         
         {/* <div className="row">
