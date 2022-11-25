@@ -12,7 +12,6 @@ function App() {
   const [cart, setCart] = useState([]);
   const [cost, setCost] = useState(0);
 
-  const [filter, setFilter] = useState(""); 
   const [sex, setSex] = useState("Any Gender");
   const [priceLimit, setPriceLimit] = useState("Any Price");
   const [dogList, setDogList] = useState(dogs);
@@ -99,32 +98,6 @@ function App() {
       }
   }
   
-  const buttons = ({ setItem, menuItems }) => {
-    return (
-      <>
-        <div>YOOO </div>
-        <div className="d-flex justify-content-center">
-          {menuItems.map((Val, id) => {
-            return (
-              <button
-                className="btn-dark text-white p-1 px-2 mx-5 btn fw-bold"
-                key={id}
-              >
-                {Val}
-              </button>
-            );
-          })}
-          <button
-            className="btn-dark text-white p-1 px-3 mx-5 fw-bold btn"
-            onClick={() => setItem(dogs)}
-          >
-            All
-          </button>
-         </div>
-      </>
-    );
-  };
-  
   const onAdd = (dog) => {
     const newCartItems = cart.map((x) => 
       x.id === dog.id);
@@ -172,9 +145,9 @@ function App() {
         
         </div>
         
-        <div className="block col-2">  
-        <h3>Showing dogs of {sex} and {priceLimit}</h3>
-        <div className="row">
+        
+        
+        {/* <div className="row">
             {dogList.map((dog) => (
                 <ShelterDog 
                     key={dog.id} 
@@ -184,22 +157,10 @@ function App() {
                     dogCard={cart.find((x) => x.id === dog.id)}>
                 </ShelterDog>               
             ))}
-        </div>
-        {/* <div>
-        
-        {dogList.filter(person => person.sex === "Female").map(dog => (
-                <ShelterDog 
-                    key={dog.id} 
-                    dog={dog} 
-                    onAdd={onAdd}
-                    onRemove={onRemove}
-                    dogCard={cart.find((x) => x.id === dog.id)}>
-                </ShelterDog>               
-            ))}
         </div> */}
-
-    </div>
-
+     </div>
+     <div className="block col-2">  
+      <h3>Showing dogs of {sex} and {priceLimit}</h3>
       <Grid cart={cart} onAdd={onAdd} onRemove={onRemove} dogs={dogList}/>   
       </div>
       
