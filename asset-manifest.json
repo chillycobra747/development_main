@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/development_main/static/css/main.90336882.css",
-    "main.js": "/development_main/static/js/main.59a44e05.js",
+    "main.css": "/development_main/static/css/main.2d03379e.css",
+    "main.js": "/development_main/static/js/main.54134fb9.js",
     "static/media/signika-negative-v20-latin-regular.svg": "/development_main/static/media/signika-negative-v20-latin-regular.2992f9a2d63a1ac77bce.svg",
     "static/media/libre-baskerville-v14-latin-regular.svg": "/development_main/static/media/libre-baskerville-v14-latin-regular.cbbe594b5dcfc1baf1ef.svg",
     "static/media/libre-baskerville-v14-latin-regular.ttf": "/development_main/static/media/libre-baskerville-v14-latin-regular.bada7a59bcd7ed746718.ttf",
@@ -18,11 +18,11 @@
     "static/media/rajdhani-v15-latin-regular.eot": "/development_main/static/media/rajdhani-v15-latin-regular.bb0f1b3be12354025984.eot",
     "static/media/rajdhani-v15-latin-regular.woff2": "/development_main/static/media/rajdhani-v15-latin-regular.7a7983e943008b42789d.woff2",
     "index.html": "/development_main/index.html",
-    "main.90336882.css.map": "/development_main/static/css/main.90336882.css.map",
-    "main.59a44e05.js.map": "/development_main/static/js/main.59a44e05.js.map"
+    "main.2d03379e.css.map": "/development_main/static/css/main.2d03379e.css.map",
+    "main.54134fb9.js.map": "/development_main/static/js/main.54134fb9.js.map"
   },
   "entrypoints": [
-    "static/css/main.90336882.css",
-    "static/js/main.59a44e05.js"
+    "static/css/main.2d03379e.css",
+    "static/js/main.54134fb9.js"
   ]
 }
