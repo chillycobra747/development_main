@@ -27,10 +27,6 @@ export default function Cart(props) {
             </div>
             <h3>Total Cost: ${cost}</h3>
             </div>
-        <div classname="filter"></div>
-        <div>
-            <button onClick={() => setIsOpen(!isOpen)} className="filterButton">Filter</button>
-        </div>
     </div>
     )
 }

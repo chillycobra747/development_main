@@ -97,6 +97,16 @@ function App() {
         }
       }
   }
+
+  const sort = event => {
+    const lowestFirst = [...dogList].sort((a, b) => a.price - b.price);
+    const sortedList = lowestFirst.map(d => {
+      return d; 
+    })
+    setDogList(sortedList);
+  }
+
+
   
   const onAdd = (dog) => {
     const newCartItems = cart.map((x) => 
@@ -141,11 +151,8 @@ function App() {
           </Cart>
           <button onClick={sexToggle}>{sex} Dogs</button>
           <button onClick={priceToggle}>{priceLimit}</button>
-   
-        
+          <button onClick={sort}>Sort</button>
         </div>
-        
-        
         
         {/* <div className="row">
             {dogList.map((dog) => (
