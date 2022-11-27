@@ -1,9 +1,9 @@
 export default function Cart(props) {
-    const {cart, cost, onAdd, onRemove, countCartItems, dogs} = props;
+    const {cart, cost, countCartItems} = props;
     return (
     <div>
       <h2>Your Dogs</h2>
-      <h3>total number added: {countCartItems}</h3>
+      <h3>Total Number Added: {countCartItems}</h3>
       <div>
           {cart.length === 0 && <div>
               <h4>You Have No Dogs</h4></div>}

@@ -56,6 +56,7 @@ button {
   font-weight: bold;
   box-shadow: 1px 1px 2px   #000000c4;
   align-self: center;
+  cursor: pointer;
 }
 
 code {
@@ -76,26 +77,17 @@ code {
 }
 
 .cart {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
   background-color: rgb(223, 252, 225);
+  margin: 30px;
   padding: 2rem;
-  height: 100%;
   border-radius: 30px;
   width: 60%;
   box-shadow: 3px 5px 3px 3px  #282c34c4;
-  
 }
 
-/* .col-1 {
-  flex-basis: 100%;
-  flex: 1;
+.grid {
+  display: flex;
 }
-.col-2 {
-  flex-basis: 100%;
-  flex: 2; 
-} */
 
 .dogItem {
   background-color: #a4caca;
@@ -116,4 +108,10 @@ img.small {
   align-self: center;
   display: flex;
   flex-wrap: wrap;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap; 
+  align-self: center;
 }

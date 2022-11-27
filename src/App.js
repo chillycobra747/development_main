@@ -28,18 +28,14 @@ function App() {
   const lowDogs = dogs.filter(d  => {return d.price < 500;});
 
   // I learned how to make these toggle buttons using https://react.school/ui/button#buttoncomponentstyle
-  const ButtonGroup = styled.div`
-    display: flex;
-    flex-wrap: wrap; 
-    align-self: center;
-  `
+  const ButtonGroup = styled.div``
   const Button = styled.button`
-    background-color: black;
+    background-color: purple;
     color: white;
     font-size: 20px;
-    border-radius: 20px;
+    border-radius: 10px;
     margin: 10px 0px;
-    cursor: pointer;;
+    cursor: pointer;
     `
   const ButtonToggle = styled(Button)`
     opacity: 0.6;
@@ -127,7 +123,7 @@ function App() {
         }
       }
       else {    
-        setPriceLimit("Any $500");       
+        setPriceLimit("Any Price");       
         setDogList(dogs); 
         if (sex === "Female") {
           setDogList(femaleDogs); 
@@ -153,7 +149,7 @@ function App() {
     }    
   }
 
-  const onAdd = (dog) => {
+  const addDog = (dog) => {
     const newCartItems = cart.map((x) => 
       x.id === dog.id);
     setCart(newCartItems);
@@ -161,7 +157,7 @@ function App() {
     setCost(cost + dog.price);
   }
 
-  const onRemove = (dog) => {
+  const removeDog = (dog) => {
     const newCartItems = cart.filter((x) => 
       x.id !== dog.id);
     setCart(newCartItems);
@@ -171,44 +167,40 @@ function App() {
   return (
     <div className="App">
       <header className="App-header"> Providence Shelter</header>
-        <div className="row">
-            <div className="cart">  
-              <Cart cart={cart} onAdd={onAdd} onRemove={onRemove} 
-                countCartItems = {cart.length} cost={cost} dogs={dogs}>              
-              </Cart>
-              <div className = "toggles">
-                <ButtonGroup className="sexToggles">
-                  {types.map(currSex => (
-                    <ButtonToggle
-                      key={currSex}
-                      active={active === currSex}
-                      onClick={() => sexToggle(currSex)}
-                    >
-                      {currSex}
-                    </ButtonToggle>
-                  ))}
-                </ButtonGroup>
-                <ButtonGroup className="priceToggles">
-                  {priceTypes.map(currPrice => (
-                    <PriceButtonToggle
-                      key={currPrice}
-                      priceActive={priceActive === currPrice}
-                      onClick={() => priceToggle(currPrice, setPriceActive)}
-                    >
-                      {currPrice}
-                    </PriceButtonToggle>
-                  ))}
-                </ButtonGroup>
+          <div className="cart">  
+            <Cart cart={cart} addDog={addDog} removeDog={removeDog} 
+              countCartItems = {cart.length} cost={cost} dogs={dogs}>              
+            </Cart>
+            <div className = "toggles">
+              <div className="button-group">
+                {types.map(currSex => (
+                  <ButtonToggle
+                    key={currSex}
+                    active={active === currSex}
+                    onClick={() => sexToggle(currSex)}
+                  >
+                    {currSex}
+                  </ButtonToggle>
+                ))}
               </div>
-                <button onClick={sort}>{sorted} By Price</button>
+              <div className="button-group">
+                {priceTypes.map(currPrice => (
+                  <PriceButtonToggle
+                    key={currPrice}
+                    priceActive={priceActive === currPrice}
+                    onClick={() => priceToggle(currPrice, setPriceActive)}
+                  >
+                    {currPrice}
+                  </PriceButtonToggle>
+                ))}
               </div>
+            </div>
+              <button onClick={sort}>{sorted} By Price</button>
         </div>
-
-     <div className="block col-2">  
-      <h3>Showing dogs of {sex} and {priceLimit}</h3>
-      <Grid cart={cart} onAdd={onAdd} onRemove={onRemove} dogs={dogList}/>   
+      <div>  
+        <h3>Showing dogs of {sex} and {priceLimit}</h3>
+        <Grid cart={cart} addDog={addDog} removeDog={removeDog} dogs={dogList}/>   
       </div>
-      
     </div>
   );
 }
