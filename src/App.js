@@ -12,9 +12,10 @@ function App() {
   const [cart, setCart] = useState([]);
   const [cost, setCost] = useState(0);
 
+  
+  const [sex, setSex] = useState("Any Sex");
   const types = ["Any Sex", "Male", "Female"];
   const [active, setActive] = useState(types[0]);
-  const [sex, setSex] = useState("Any Sex");
 
   const [priceLimit, setPriceLimit] = useState("Any Price");
   const priceTypes = ["Any Price", "Below $500", "Above $500"];
@@ -36,13 +37,18 @@ function App() {
     margin: 10px 0px;
     cursor: pointer;
     `
-  const ButtonToggle =
-    styled(Button)`
+  const ButtonToggle = styled(Button)`
     opacity: 0.6;
     ${({ active }) =>
       active &&
-      `
-      opacity: 1;
+      ` opacity: 1;
+    `}`;
+
+  const PriceButtonToggle = styled(Button)`
+    opacity: 0.6;
+    ${({ priceActive }) =>
+    priceActive &&
+      ` opacity: 1;
     `}`;
 
   const sexToggle = (currSex) => {
@@ -90,14 +96,6 @@ function App() {
     }
   }
 
-  const PriceButtonToggle = styled(Button)`
-  opacity: 0.6;
-  ${({ priceActive }) =>
-  priceActive &&
-    `
-    opacity: 1;
-  `}
-`;
   const priceToggle = (currPrice) => {
     setDogList(dogs);
     setPriceActive(currPrice);
