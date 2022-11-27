@@ -28,7 +28,6 @@ function App() {
   const lowDogs = dogs.filter(d  => {return d.price < 500;});
 
   // I learned how to make these toggle buttons using https://react.school/ui/button#buttoncomponentstyle
-  const ButtonGroup = styled.div``
   const Button = styled.button`
     background-color: purple;
     color: white;
@@ -37,7 +36,8 @@ function App() {
     margin: 10px 0px;
     cursor: pointer;
     `
-  const ButtonToggle = styled(Button)`
+  const ButtonToggle =
+    styled(Button)`
     opacity: 0.6;
     ${({ active }) =>
       active &&
@@ -98,9 +98,9 @@ function App() {
     opacity: 1;
   `}
 `;
-  const priceToggle = (currPrice, setPriceActive) => {
+  const priceToggle = (currPrice) => {
     setDogList(dogs);
-    setPriceActive(currPrice)
+    setPriceActive(currPrice);
     if (currPrice === "Above $500") {
       setPriceLimit("Above $500");           
       if (sex !== "Any Sex") {

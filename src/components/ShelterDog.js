@@ -1,5 +1,5 @@
 export default function ShelterDog(props) {
-    const {dog, onAdd, onRemove, dogCard} = props;
+    const {dog, addDog, removeDog, dogCard} = props;
     return (
         <div className = "dogItem"> 
             <h1>{dog.name}</h1>
@@ -11,12 +11,11 @@ export default function ShelterDog(props) {
             <div>
                 {dogCard ? (
                 <div>
-                    <button onClick={() => onRemove(dogCard)} className="remove">Remove dog</button>
+                    <button onClick={() => removeDog(dogCard)} className="remove">Remove dog</button>
                 </div>
             ) : (
-                <button onClick={() => onAdd(dog)}>Add dog</button>
-            )}
-                
+                <button onClick={() => addDog(dog)}>Add dog</button>
+            )}    
             </div>
         </div>
     )
