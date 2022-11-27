@@ -7,11 +7,11 @@ export default function ShelterDog(props) {
             <h3>{dog.sex}</h3>
             <h4>{dog.age} months</h4>
             <h3>Price: ${dog.price}</h3>
-            <img className="small" src={dog.image} alt={dog.name}/>
+            <img src={dog.image} alt={dog.name}/>
             <div>
                 {dogCard ? (
                 <div>
-                    <button onClick={() => removeDog(dogCard)} className="remove">Remove dog</button>
+                    <button onClick={() => removeDog(dogCard)}>Remove dog</button>
                 </div>
             ) : (
                 <button onClick={() => addDog(dog)}>Add dog</button>

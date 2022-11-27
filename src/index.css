@@ -64,10 +64,6 @@ code {
     monospace;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -99,10 +95,9 @@ code {
   box-shadow: 3px 5px 3px 3px #68635798;
 }
 
-img.small {
+img {
   width: 23rem;
 }
-
 
 .toggles {
   align-self: center;
