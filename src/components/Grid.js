@@ -10,7 +10,7 @@ export default function Grid(props) {
                     dog={dog} 
                     addDog={addDog}
                     removeDog={removeDog}
-                    dogCard={cart.find((x) => x.id === dog.id)}>
+                    dogCard={cart.find((current) => current.id === dog.id)}>
                 </ShelterDog>               
             ))}
         </div>

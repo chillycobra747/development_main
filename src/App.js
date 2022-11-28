@@ -12,7 +12,6 @@ function App() {
   const [cart, setCart] = useState([]);
   const [cost, setCost] = useState(0);
 
-  
   const [sex, setSex] = useState("Any Sex");
   const types = ["Any Sex", "Male", "Female"];
   const [active, setActive] = useState(types[0]);

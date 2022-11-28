@@ -7,7 +7,7 @@ export default function ShelterDog(props) {
             <h3>{dog.sex}</h3>
             <h4>{dog.age} months</h4>
             <h3>Price: ${dog.price}</h3>
-            <img src={dog.image} alt={dog.name}/>
+            <img src={dog.image} alt={dog.breed}/>
             <div>
                 {dogCard ? (
                 <div>

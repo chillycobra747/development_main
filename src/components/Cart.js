@@ -3,7 +3,7 @@ export default function Cart(props) {
     return (
     <div>
       <h2>Your Dogs</h2>
-      <h3>Total Number Added: {countCartItems}</h3>
+      <h3>Number Dogs Added: {countCartItems}</h3>
       <div>
           {cart.length === 0 && <div>
               <h4>You Have No Dogs</h4></div>}
