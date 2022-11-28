@@ -27,7 +27,8 @@ will move around and change.
 My main file is App.js, where I set up the page and different aspects. I have a ShelterDog component which I 
 pass my addDog and remove Dog consts into. This makes it so that each Dog Card has a button where users 
 can add or remove these dogs, and this change will be reflected in the cart. Ergo, I built a cart component, which has props of cart and countCartItems. The cart prop is changed depending on adding and removing dogs 
-in the ShelterDog component, and (depending on current state) prints a list of dogs which are in the user's cart. Furthermore, I have consts for price and sex filters, which are updated based on button clicks by the user. When these buttons are clicked, I pass the current state
+in the ShelterDog component, and (depending on current state) prints a list of dogs which are in the user's cart. Furthermore, I have consts for price and sex filters, which are updated based on button clicks by the user. When these buttons are clicked, I pass the current state into the priceToggle or sexToggle consts, which will then update the interface for the user. 
 
 ### How the User Triggers State Changes
-
+The user triggers state changes by their button selections (two toggle options, a sorting button, and add/remove buttons on each card for each dog). I use onClick() in the div of each of my bottons so that a function or const 
+is called, which will then update the interface using state variables. 
