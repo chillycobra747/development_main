@@ -1,9 +1,11 @@
 # Development
 
 ### Link to Deployed Website
-If you used the stencil code, this is `https://<your GitHub username>.github.io/<name of your repository>`
+`https://chillycobra747.github.io/development_main`
 
 ### Goal and Value of the Application
+The goal of this application is to allow users to find, sort, filter, and chose dogs they would like
+at a shelter. 
 
 ### Usability Principles Considered
 

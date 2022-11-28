@@ -50,6 +50,22 @@ function App() {
       ` opacity: 1;
     `}`;
 
+  function sort() {
+    console.log('hi');
+    if (sorted === "Unsort"){
+      setSorted("Sort");
+      const unsortedList = dogList.sort(() => Math.random() - 0.5);
+      setDogList(unsortedList);
+    } else {
+      setSorted("Unsort");
+      const lowestFirst = [...dogList].sort((a, b) => a.price - b.price);
+      const sortedList = lowestFirst.map(d => {
+        return d; 
+      })
+      setDogList(sortedList);
+    }    
+  }
+
   const sexToggle = (currSex) => {
     setActive(currSex);
     setDogList(dogs);
@@ -129,21 +145,6 @@ function App() {
           setDogList(maleDogs);
         }
       }
-  }
-
-  const sort = event => {
-    if (sorted === "Unsort"){
-      setSorted("Sort");
-      const unsortedList = dogList.sort(() => Math.random() - 0.5);
-      setDogList(unsortedList);
-    } else {
-      setSorted("Unsort");
-      const lowestFirst = [...dogList].sort((a, b) => a.price - b.price);
-      const sortedList = lowestFirst.map(d => {
-        return d; 
-      })
-      setDogList(sortedList);
-    }    
   }
 
   const addDog = (dog) => {
