@@ -50,9 +50,8 @@ function App() {
       ` opacity: 1;
     `}`;
 
-  function sort() {
-    console.log('hi');
-    if (sorted === "Unsort"){
+  const sort = (event) => {
+    if (sorted === "Unsort") {
       setSorted("Sort");
       const unsortedList = dogList.sort(() => Math.random() - 0.5);
       setDogList(unsortedList);
@@ -63,7 +62,7 @@ function App() {
         return d; 
       })
       setDogList(sortedList);
-    }    
+    } 
   }
 
   const sexToggle = (currSex) => {
