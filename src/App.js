@@ -1,10 +1,10 @@
 import './App.css';
 import './index.css';
-import Grid from "./components/Grid";
 import Cart from './components/Cart';
 import data from './DogData'
 import { useState } from 'react';
 import styled from "styled-components";
+import ShelterDog from "./components/ShelterDog.js";
 
 function App() {
   const {dogs} = data; 
@@ -147,7 +147,7 @@ function App() {
   }
 
   const addDog = (dog) => {
-    const newCartItems = cart.map((x) => 
+    const newCartItems = cart.map(x => 
       x.id === dog.id);
     setCart(newCartItems);
     setCart([...cart, {...dog, qty:1}]);
@@ -155,7 +155,7 @@ function App() {
   }
 
   const removeDog = (dog) => {
-    const newCartItems = cart.filter((x) => 
+    const newCartItems = cart.filter(x => 
       x.id !== dog.id);
     setCart(newCartItems);
     setCost(cost - dog.price);
@@ -164,39 +164,51 @@ function App() {
   return (
     <div className="App">
       <header className="App-header"> Providence Shelter</header>
-          <div className="cart">  
-            <Cart cart={cart} addDog={addDog} removeDog={removeDog} 
-              countCartItems = {cart.length} cost={cost} dogs={dogs}>              
-            </Cart>
-            <div className = "toggles">
-              <div className="button-group">
-                {types.map(currSex => (
-                  <ButtonToggle
-                    key={currSex}
-                    active={active === currSex}
-                    onClick={() => sexToggle(currSex)}
-                  >
-                    {currSex}
-                  </ButtonToggle>
-                ))}
-              </div>
-              <div className="button-group">
-                {priceTypes.map(currPrice => (
-                  <PriceButtonToggle
-                    key={currPrice}
-                    priceActive={priceActive === currPrice}
-                    onClick={() => priceToggle(currPrice, setPriceActive)}
-                  >
-                    {currPrice}
-                  </PriceButtonToggle>
-                ))}
-              </div>
+        <div className="cart">  
+          <Cart cart={cart} addDog={addDog} removeDog={removeDog} 
+            countCartItems = {cart.length} cost={cost} dogs={dogs}>              
+          </Cart>
+          <div className = "toggles">
+            <div className="button-group">
+              {types.map(currSex => (
+                <ButtonToggle
+                  key={currSex}
+                  active={active === currSex}
+                  onClick={() => sexToggle(currSex)}
+                >
+                  {currSex}
+                </ButtonToggle>
+              ))}
             </div>
-              <button onClick={sort}>{sorted} By Price</button>
+            <div className="button-group">
+              {priceTypes.map(currPrice => (
+                <PriceButtonToggle
+                  key={currPrice}
+                  priceActive={priceActive === currPrice}
+                  onClick={() => priceToggle(currPrice)}
+                >
+                  {currPrice}
+                </PriceButtonToggle>
+              ))}
+            </div>
+          </div>
+            <button onClick={sort}>{sorted} By Price</button>
         </div>
       <div>  
-        <h3>Showing dogs of {sex} and {priceLimit}</h3>
-        <Grid cart={cart} addDog={addDog} removeDog={removeDog} dogs={dogList}/>   
+        <h3>Showing {sex} dogs sold at {priceLimit}</h3>
+        <div>  
+          <div className="row">
+            {dogList.map((dog) => (
+                <ShelterDog 
+                    key={dog.id} 
+                    dog={dog} 
+                    addDog={addDog}
+                    removeDog={removeDog}
+                    dogCard={cart.find((current) => current.id === dog.id)}>
+                </ShelterDog>               
+            ))}
+          </div>
+        </div>  
       </div>
     </div>
   );

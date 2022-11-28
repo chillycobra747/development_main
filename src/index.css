@@ -67,6 +67,10 @@ button {
   position: relative;
 }
 
+.col {
+  margin: 5px 5px 40px;
+}
+
 .cart {
   background-color: rgb(223, 252, 225);
   margin: 30px;
@@ -74,10 +78,6 @@ button {
   border-radius: 30px;
   width: 60%;
   box-shadow: 3px 5px 3px 3px  #282c34c4;
-}
-
-.grid {
-  display: flex;
 }
 
 .dogItem {
@@ -96,15 +96,11 @@ img {
 }
 
 .toggles {
-  align-self: center;
   display: flex;
   flex-wrap: wrap;
-  position: relative;
 }
 
 .button-group {
-  align-self: center;
   margin: 30px;
-  justify-content: space-between;
   position: relative;
 }
